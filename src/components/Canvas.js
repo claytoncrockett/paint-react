@@ -2,7 +2,7 @@ import React from "react";
 
 class Canvas extends React.Component {
 
-  state = { isPainting: false, userStrokeStyle: '#FF0000', line: [], prevPos:{offsetX: 0, offsetY: 0} };
+  state = { isPainting: false, userStrokeStyle: this.props.paintColor, line: [], prevPos:{offsetX: 0, offsetY: 0} };
 
   onMouseDown = ({nativeEvent}) => {
     const { offsetX, offsetY } = nativeEvent;
@@ -44,12 +44,18 @@ class Canvas extends React.Component {
   }
 
   componentDidMount() {
-    this.canvas.width = 1000;
-    this.canvas.height = 800;
+    this.canvas.width = 1280;
+    this.canvas.height = 1000;
     this.ctx = this.canvas.getContext('2d');
     this.ctx.lineJoin = 'round';
     this.ctx.lineCap = 'round';
     this.ctx.lineWidth = 5;
+  }
+
+  componentDidUpdate(prevProps){
+    if (this.props.paintColor !== prevProps.paintColor){
+      this.setState({userStrokeStyle: this.props.paintColor});
+    }
   }
 
   render(){
