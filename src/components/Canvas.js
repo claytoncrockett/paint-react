@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class Canvas extends React.Component {
 
   state = { isPainting: false, userStrokeStyle: this.props.paintColor, line: [], prevPos:{offsetX: 0, offsetY: 0} };
@@ -50,6 +51,7 @@ class Canvas extends React.Component {
     this.ctx.lineJoin = 'round';
     this.ctx.lineCap = 'round';
     this.ctx.lineWidth = 5;
+    this.props.passCanvas(this.canvas);
   }
 
   componentDidUpdate(prevProps){

@@ -11,6 +11,7 @@ const IconContainer = styled.div`
   top: 1%;
   left: 1%;
   background-color: grey;
+  cursor: pointer;
 `;
 
 const AllColorsContainer = styled.div`
@@ -27,6 +28,7 @@ width: 4.5vw;
 padding-top: 25%;
 border: solid white;
 border-radius: 1%;
+cursor: pointer;
 `;
 
 class ColorPicker extends React.Component{
