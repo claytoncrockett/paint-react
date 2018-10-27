@@ -12,7 +12,7 @@ class App extends Component {
     this.setState({paintColor: hexColor})
   }
 
-  clearCanvas = (canvas) => {
+  clearCanvas = () => {
     const context = this.state.canvas.getContext('2d');
     context.clearRect(0, 0, 1280, 1000);
   }
@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <ColorPicker changeColor={this.changeColor} />
         <Canvas paintColor={this.state.paintColor} passCanvas={this.passCanvas} />
-        {this.state.canvas && <Erase clearCanvas={() => this.clearCanvas(this.state.canvas)} /> }
+        {this.state.canvas && <Erase clearCanvas={this.clearCanvas} /> }
       </div>
     );
   }
